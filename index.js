@@ -2,7 +2,7 @@
 
 const store = {
   items: [
-    { id: cuid(), name: 'apples', checked: false, editTitle: false },
+    { id: cuid(), name: 'apples', checked: false},
     { id: cuid(), name: 'oranges', checked: false },
     { id: cuid(), name: 'milk', checked: true },
     { id: cuid(), name: 'bread', checked: false }
@@ -104,7 +104,7 @@ const getItemIdFromElement = function (item) {
 /**
  * Responsible for deleting a list item.
  * @param {string} id 
-**/
+*/
 
 const deleteListItem = function (id) {
   // As with 'addItemToShoppingLIst', this 
@@ -134,10 +134,13 @@ const handleDeleteItemClicked = function () {
     render();
   });
 };
+
+
 const editListItemName = function (id, itemName) {
   const item = store.items.find(item => item.id === id);
   item.name = itemName;
 };
+
 /**
  * Toggles the store.hideCheckedItems property
  */
@@ -180,6 +183,7 @@ const handleShoppingList = function () {
   handleNewItemSubmit();
   handleItemCheckClicked();
   handleDeleteItemClicked();
+  handleEditShoppingItemSubmit();
   handleToggleFilterClick();
 };
 
